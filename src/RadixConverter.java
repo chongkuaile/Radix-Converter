@@ -12,7 +12,7 @@ public class RadixConverter {
 
         // public variable for int number, and string for hexa incase may letters
         // gumawa muna ako dito para ma-access ng mga if statements
-        long number_inputed = 0;
+        Long number_inputed = 0L;
         String number_inputed_hex = "";
 
         boolean valid = true;
