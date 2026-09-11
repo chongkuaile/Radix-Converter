@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class RadixConverter {
 
-    public static void main(String[] args){
+     public static void main(String[] args){
 
         // Input number here
         Scanner typehere = new Scanner(System.in);
@@ -12,7 +12,7 @@ public class RadixConverter {
 
         // public variable for int number, and string for hexa incase may letters
         // gumawa muna ako dito para ma-access ng mga if statements
-        int number_inputed = 0;
+        long number_inputed = 0;
         String number_inputed_hex = "";
 
         boolean valid = true;
@@ -27,14 +27,14 @@ public class RadixConverter {
         } else {
 
             System.out.print("Enter a number: ");
-            number_inputed = typehere.nextInt();
+            number_inputed = typehere.nextLong();
 
         }
 
 
 
         // checks if the inputed number is an integer value
-        if (number_inputed == (int)number_inputed || number_inputed_hex == (String)number_inputed_hex && valid) {
+        if (number_inputed instanceof Long || number_inputed_hex instanceof String && valid) {
 
             // checks the type of base (decimal, binary, octal, hexadecimal)
             if ("Binary".equalsIgnoreCase(type)) {
@@ -72,13 +72,13 @@ public class RadixConverter {
     }
 
     // Decimal converter function
-    public static void ConvertDecimal(int number) {
+    public static void ConvertDecimal(long number) {
 
         // variables for each 3 types
         // di na nag string.valueof at parseint dito kasi inaaccept na automatically na decimal yung int number argument
-        String binary = Integer.toBinaryString(number);
-        String octal = Integer.toOctalString(number);
-        String hexa = Integer.toHexString(number);
+        String binary = Long.toBinaryString(number);
+        String octal = Long.toOctalString(number);
+        String hexa = Long.toHexString(number);
 
         System.out.println(number + " in binary is: " + binary);
         System.out.println(number + " in octal is: " + octal);
@@ -87,7 +87,7 @@ public class RadixConverter {
     }
 
     // Binary converter function
-    public static void ConvertBinary(int number) {
+    public static void ConvertBinary(long number) {
 
         // bool value for the for loop, set muna ng value para mapalitan later
         boolean valid = true;
@@ -97,7 +97,7 @@ public class RadixConverter {
         // (int_checker > 0) is to check if the input is above 0, to check numbers above 0
         // (int_checker /= 10) is to divide the input to 10, it removes the last digit
         // (int_checker % 10 > 1) gives back the remainder that was left on the previous division
-        for (int int_checker = number; int_checker > 0; int_checker /= 10) {
+        for (long int_checker = number; int_checker > 0; int_checker /= 10) {
             if (int_checker % 10 > 1) {
                 valid = false;
                 break; //break the loop kapag false
@@ -130,7 +130,7 @@ public class RadixConverter {
     }
 
     // Octal converter function
-    public static void ConvertOctal(int number) {
+    public static void ConvertOctal(long number) {
 
         // bool value for the while loop, set muna ng value para mapalitan later
         boolean valid = true;
@@ -140,7 +140,7 @@ public class RadixConverter {
         // (int_checker > 0) is to check if the input is above 0, to check numbers above 0
         // (int_checker /= 10) is to divide the input to 10, it removes the last digit
         // (int_checker % 10 > 7) gives back the remainder that was left on the previous division
-        for (int int_checker = number; int_checker > 0; int_checker /= 10) {
+        for (long int_checker = number; int_checker > 0; int_checker /= 10) {
             if (int_checker % 10 > 7) {
                 valid = false;
                 break; //break the loop kapag false
@@ -173,7 +173,7 @@ public class RadixConverter {
     }
 
     // Hexadecimal converter function
-    public static void ConvertHexadecimal(int number, String number_w_letter) {
+    public static void ConvertHexadecimal(long number, String number_w_letter) {
 
 
         // need muna iconvert yung int number from decimal value
